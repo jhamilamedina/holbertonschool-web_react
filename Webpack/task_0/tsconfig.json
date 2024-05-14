@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "outDir": "./dist/",
+    "outDir": "task_1/dist",
     "sourceMap": true,
     "noImplicitAny": true,
     "module": "es6",
