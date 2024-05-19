@@ -12,7 +12,7 @@ function App() {
 
       <body className="App-body">
         <p>Login to access the full dashboard</p>
-        <form>
+        <form class="horizontal-form">
           <div>
             <label htmlFor="email">Email: </label>
             <input type="email" id="email" name="email" />

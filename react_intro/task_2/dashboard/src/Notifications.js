@@ -16,6 +16,7 @@ const Notification = () => {
         cursor: 'pointer',
         fontSize: '20px',
         marginRight: '10px',
+        
       }}
 
         aria-label="Close"
