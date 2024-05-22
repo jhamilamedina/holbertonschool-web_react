@@ -2,7 +2,7 @@ import React from 'react';
 import './Notifications.css';
 import { getLatestNotification } from './utils';
 
-const Notification = () => {
+const Notifications = () => {
   const handleClick = () => {
     console.log("Close button has been clicked");
   };
@@ -37,4 +37,4 @@ const Notification = () => {
   );
 };
 
-export default Notification;
+export default Notifications;
