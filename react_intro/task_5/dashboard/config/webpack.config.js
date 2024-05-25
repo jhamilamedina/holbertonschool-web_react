@@ -1,14 +1,14 @@
 const path = require('path');
 
 module.exports = {
-  entry: './src/index.js', // Punto de entrada de tu aplicación
+  entry: path.resolve(__dirname, '../src/index.js'), // Ajusta la ruta del punto de entrada
   output: {
     filename: 'bundle.js', // Nombre del archivo de salida
-    path: path.resolve(__dirname, 'dist') // Carpeta de salida
+    path: path.resolve(__dirname, '../dist') // Ajusta la ruta de salida
   },
-  mode: 'production', // Modo de desarrollo
+  mode: 'development', // Modo de desarrollo
   devServer: {
-    static: path.join(__dirname, 'dist'), // Carpeta desde la que servir archivos
+    static: path.resolve(__dirname, '../dist'), // Ajusta la ruta de la carpeta desde la que servir archivos
     compress: true, // Habilita la compresión gzip
     port: 9000, // Puerto del servidor
     hot: true // Habilita hot reloading
@@ -35,7 +35,6 @@ module.exports = {
                 progressive: true,
                 quality: 65
               },
-              // Optimize PNG files
               optipng: {
                 enabled: false,
               },
@@ -43,11 +42,9 @@ module.exports = {
                 quality: [0.65, 0.90],
                 speed: 4
               },
-              // Optimize GIF files
               gifsicle: {
                 interlaced: false,
               },
-              // Optimize SVG files
               svgo: {
                 plugins: [
                   {
