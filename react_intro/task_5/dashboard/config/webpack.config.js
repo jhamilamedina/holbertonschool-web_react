@@ -1,20 +1,31 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: path.resolve(__dirname, '../src/index.js'), // Ajusta la ruta del punto de entrada
+  entry: './src/App/App.js', // Punto de entrada de tu aplicación
   output: {
     filename: 'bundle.js', // Nombre del archivo de salida
-    path: path.resolve(__dirname, '../dist') // Ajusta la ruta de salida
+    path: path.resolve(__dirname, '../dist') // Carpeta de salida
   },
   mode: 'development', // Modo de desarrollo
   devServer: {
-    static: path.resolve(__dirname, '../dist'), // Ajusta la ruta de la carpeta desde la que servir archivos
+    static: path.join(__dirname, '../dist'), // Carpeta desde la que servir archivos
     compress: true, // Habilita la compresión gzip
     port: 9000, // Puerto del servidor
     hot: true // Habilita hot reloading
   },
   module: {
     rules: [
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env', '@babel/preset-react']
+          }
+        }
+      },
       {
         test: /\.css$/, // Regla para archivos CSS
         use: ['style-loader', 'css-loader']
@@ -57,6 +68,16 @@ module.exports = {
         ]
       }
     ]
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './src/index.html',
+      filename: 'index.html',
+      favicon: path.resolve(__dirname, '../dist/favicon.ico') // Añade esta línea
+    })
+  ],
+  resolve: {
+    extensions: ['.js', '.jsx']
   },
   devtool: 'inline-source-map' // Soporte para inline source map
 };
