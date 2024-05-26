@@ -1,4 +1,4 @@
-import './App.js';
+import '../App/App.js';
 
 export function getFullYear() {
   return new Date().getFullYear();
