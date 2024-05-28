@@ -1,0 +1,29 @@
+.imagen {
+  position: relative;
+  position:absolute;
+  left: 0;
+  width: 20%;
+  height: auto;
+  top: 0;
+}
+.App-header h1 {
+  color: rgb(212, 15, 15);
+  text-align: right;
+  position: relative;
+  position:absolute;
+  left: 0;
+  width: 50%;
+  height: auto;
+  top:2cap;
+}
+
+
+.App-header {
+  background-color: white;
+  min-height: 5vh;
+  display: flex;
+  flex-direction:row-reverse;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+}
