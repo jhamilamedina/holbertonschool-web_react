@@ -2,7 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: './src/App/App.js', // Punto de entrada de tu aplicación
+  entry: './src/index.js', // Punto de entrada de tu aplicación
   output: {
     filename: 'bundle.js', // Nombre del archivo de salida
     path: path.resolve(__dirname, '../dist') // Carpeta de salida
@@ -11,7 +11,7 @@ module.exports = {
   devServer: {
     static: path.join(__dirname, '../dist'), // Carpeta desde la que servir archivos
     compress: true, // Habilita la compresión gzip
-    port: 9000, // Puerto del servidor
+    port: 9001, // Puerto del servidor
     hot: true // Habilita hot reloading
   },
   module: {
@@ -71,9 +71,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/index.html',
-      filename: 'index.html',
-      favicon: path.resolve(__dirname, '../dist/favicon.ico') // Añade esta línea
+      template: path.resolve(__dirname, '../dist/index.html')
     })
   ],
   resolve: {
