@@ -1,10 +1,10 @@
-.imagen {
+.App-logo {
   position: relative;
   position:absolute;
   left: 0;
   width: 20%;
   height: auto;
-  top: 0;
+  top:10cap;
 }
 .App-header h1 {
   color: rgb(212, 15, 15);
@@ -14,7 +14,7 @@
   left: 0;
   width: 50%;
   height: auto;
-  top:2cap;
+  top:7cap;
 }
 
 

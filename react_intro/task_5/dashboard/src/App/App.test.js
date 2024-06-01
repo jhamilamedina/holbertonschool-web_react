@@ -1,27 +1,28 @@
-import React from 'react';
 // import { render, screen } from '@testing-library/react';
-import '@testing-library/jest-dom/extend-expect';
+import React from 'react';
 import { shallow } from 'enzyme';
 import App from './App';
 
-test('renders without crashing', () => {
-  render(<App />);
-});
+describe('App Component', () => {
+  let wrapper;
 
-test('renders a div with class App-header', () => {
-  render(<App />);
-  const appHeader = screen.getByText('School dashboard');
-  expect(appHeader).toBeInTheDocument();
-});
+  beforeEach(() => {
+    wrapper = shallow(<App />);
+  });
 
-test('renders a div with class App-body', () => {
-  render(<App />);
-  const appBody = screen.getByText('Login to access the full dashboard');
-  expect(appBody).toBeInTheDocument();
-});
+  it('Renderizar son romperse.', () => {
+    expect(wrapper.exists()).toBe(true);
+  });
 
-test('renders a div with class App-footer', () => {
-  render(<App />);
-  const appFooter = screen.getByText(/Copyright 2024 - Holberton School/);
-  expect(appFooter).toBeInTheDocument();
+  it('Renderiza con un elemento con clase App-header', () => {
+    expect(wrapper.find('.App-header').length).toBe(1);
+  });
+
+  it('Renderiza con un elemento con clase App-body', () => {
+    expect(wrapper.find('.App-body').length).toBe(1);
+  });
+
+  it('Renderiza con un elemento con clase App-footer', () => {
+    expect(wrapper.find('.App-footer').length).toBe(1);
+  });
 });

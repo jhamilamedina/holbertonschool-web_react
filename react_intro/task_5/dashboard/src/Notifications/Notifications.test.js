@@ -1,22 +1,23 @@
-import React from "react";
-import { screen } from "@testing-library/react";
-import "@testing-library/jest-dom/extend-expect";
+import React from 'react';
 import { shallow } from 'enzyme';
-import Notifications from "./Notifications";
+import Notifications from './Notifications';
 
-test("render without crashing", () => {
-  shallow(<Notifications />);
-});
+describe('Notifications Component', () => {
+  let wrapper;
 
-test('renders three list items', () => {
-  shallow(<Notifications />);
-  const listItems = screen.getAllByRole('listitem');
-  expect(listItems).toHaveLength(3);
-});
+  beforeEach(() => {
+    wrapper = shallow(<Notifications />);
+  });
 
-test('renders the text "Here is the list of notifications"', () => {
-  shallow(<Notifications />);
-  const paragraphElement = screen.getByText('Here is the list of notifications');
-  expect(paragraphElement).toBeInTheDocument();
-  
+  it('Renderiza sin romperse.', () => {
+    expect(wrapper.exists()).toBe(true);
+  });
+
+  it('Renderiza 3 li.', () => {
+    expect(wrapper.find('li').length).toBe(3);
+  });
+
+  it('Renderiza con el texo "Here is the list of notifications"', () => {
+    expect(wrapper.find('p').text()).toBe('Here is the list of notifications');
+  });
 });

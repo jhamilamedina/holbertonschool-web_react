@@ -2,25 +2,21 @@ import React from 'react';
 import './Notifications.css';
 import { getLatestNotification } from '../utils/utils';
 
-const Notifications = () => {
-  const handleClick = () => {
-    console.log("Close button has been clicked");
-  };
+function Notifications() {
   return (
-  <div className="Notifications">
-    <button
-      style={{
-        float: 'right',
-        backgroundColor: 'transparent',
-        border: 'none',
-        cursor: 'pointer',
-        fontSize: '20px',
-        marginRight: '10px',
-        
-      }}
-
+    <div className="Notifications">
+      <button
+        style={{
+          position: 'absolute',
+          top: '10px',
+          right: '10px',
+          border: 'none',
+          background: 'transparent',
+          cursor: 'pointer',
+          fontSize: '16px',
+        }}
         aria-label="Close"
-        onClick={handleClick}
+        onClick={() => console.log('Close button has been clicked')}
       >
         x
       </button>
@@ -35,6 +31,6 @@ const Notifications = () => {
       </ul>
     </div>
   );
-};
+}
 
 export default Notifications;
