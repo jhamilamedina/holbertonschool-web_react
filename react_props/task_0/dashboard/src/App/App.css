@@ -1,3 +1,33 @@
+.App-logo {
+  position: relative;
+  position:absolute;
+  left: 0;
+  width: 20%;
+  height: auto;
+  top:10cap;
+}
+.App-header h1 {
+  color: rgb(212, 15, 15);
+  text-align: right;
+  position: relative;
+  position:absolute;
+  left: 0;
+  width: 50%;
+  height: auto;
+  top:7cap;
+}
+
+
+.App-header {
+  background-color: white;
+  min-height: 5vh;
+  display: flex;
+  flex-direction:row-reverse;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+}
+
 .App-body {
   border-top: 2px solid rgb(215, 27, 49);
   margin-top: 20%;
@@ -39,4 +69,13 @@
   margin-top: 4%;
   text-align: left;
   width: 50%;
+}
+
+.App-footer p {
+  text-align: center;
+  padding: 10px;
+  background-color:white;
+  color: rgb(6, 5, 5);
+  border-top: 2px solid rgb(215, 27, 49);
+  margin-top: 25%;
 }
