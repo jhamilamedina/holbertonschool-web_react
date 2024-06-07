@@ -15,10 +15,10 @@
   font-weight: 900;
 }
 
-.Notifications ul li[data-priority="default"] {
+.Notifications ul li[data-priority="urgent"] {
   color: blue;
 }
 
-.Notifications ul li[data-priority="urgent"] {
+.NotificationItem ul li[data-priority="urgent"] {
   color: red;
 }
