@@ -17,6 +17,13 @@ module.exports = {
     port: 8564,
     open: true,
   },
+
+  optimization: {
+    splitChunks: {
+      chunks: "all"
+    }
+  },
+  
   devtool: 'inline-source-map',
   module: {
     rules: [
