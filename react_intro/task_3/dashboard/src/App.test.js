@@ -1,26 +1,24 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
-import '@testing-library/jest-dom/extend-expect';
+import { shallow } from 'enzyme';
 import App from './App';
 
-test('renders without crashing', () => {
-  render(<App />);
-});
+describe('App component tests', () => {
+    it('App renders without crashing', () => {
+        shallow(<App />);
+    });
 
-test('renders a div with class App-header', () => {
-  render(<App />);
-  const appHeader = screen.getByText('School dashboard');
-  expect(appHeader).toBeInTheDocument();
-});
+    it('App renders a div with the class App-header', () => {
+        const wrapper = shallow(<App />);
+        expect(wrapper.find('.App-header').length).toBe(1);
+    });
 
-test('renders a div with class App-body', () => {
-  render(<App />);
-  const appBody = screen.getByText('Login to access the full dashboard');
-  expect(appBody).toBeInTheDocument();
-});
+    it('App renders a div with the class App-body', () => {
+        const wrapper = shallow(<App />);
+        expect(wrapper.find('.App-body').length).toBe(1);
+    });
 
-test('renders a div with class App-footer', () => {
-  render(<App />);
-  const appFooter = screen.getByText(/Copyright 2024 - Holberton School/);
-  expect(appFooter).toBeInTheDocument();
+    it('App renders a div with the class App-footer', () => {
+        const wrapper = shallow(<App />);
+        expect(wrapper.find('.App-footer').length).toBe(1);
+    });
 });

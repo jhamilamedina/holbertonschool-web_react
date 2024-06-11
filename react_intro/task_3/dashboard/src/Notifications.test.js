@@ -1,21 +1,21 @@
-import React from "react";
-import { render, screen } from "@testing-library/react";
-import "@testing-library/jest-dom/extend-expect";
-import Notifications from "./Notifications";
+// import { render, screen } from "@testing-library/react";
+// import "@testing-library/jest-dom/extend-expect";
+import React from 'react';
+import { shallow } from 'enzyme';
+import Notifications from './Notifications';
 
-test("render without crashing", () => {
-  render(<Notifications />);
-});
+describe('Notifications component tests', () => {
+    it('Notifications renders without crashing', () => {
+        shallow(<Notifications />);
+    });
 
-test('renders three list items', () => {
-  render(<Notifications />);
-  const listItems = screen.getAllByRole('listitem');
-  expect(listItems).toHaveLength(3);
-});
+    it('Notifications renders three list items', () => {
+        const wrapper = shallow(<Notifications />);
+        expect(wrapper.find('li').length).toBe(3);
+    });
 
-test('renders the text "Here is the list of notifications"', () => {
-  render(<Notifications />);
-  const paragraphElement = screen.getByText('Here is the list of notifications');
-  expect(paragraphElement).toBeInTheDocument();
-  
+    it('Notifications renders the text "Here is the list of notifications"', () => {
+        const wrapper = shallow(<Notifications />);
+        expect(wrapper.find('p').text()).toBe('Here is the list of notifications');
+    });
 });
