@@ -11,7 +11,7 @@ module.exports = {
   devServer: {
     static: path.join(__dirname, '../dist'), // Carpeta desde la que servir archivos
     compress: true, // Habilita la compresión gzip
-    port: 9001, // Puerto del servidor
+    port: 3000, // Puerto del servidor
     hot: true // Habilita hot reloading
   },
   module: {
