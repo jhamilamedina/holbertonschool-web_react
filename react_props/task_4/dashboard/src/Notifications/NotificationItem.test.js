@@ -6,7 +6,7 @@ import NotificationItem from './NotificationItem';
 describe('Notifications Component', () => {
   it('renders NotificationItem elements', () => {
     const wrapper = shallow(<Notifications />);
-    expect(wrapper.find(NotificationItem)).toHaveLength(3); // Cambia el número según cuántos elementos esperas
+    expect(wrapper.find(NotificationItem)).toHaveLength(3);
   });
 
   it('renders the correct HTML in the first NotificationItem element', () => {

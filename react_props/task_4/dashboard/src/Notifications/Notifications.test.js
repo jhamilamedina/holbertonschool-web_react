@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import Notifications from './Notifications';
+import NotificationItem from './NotificationItem';
 
 describe('Notifications Component', () => {
   it('Renderiza sin romperse.', () => {
@@ -36,5 +37,11 @@ describe('Notifications Component', () => {
   it('Debe mostrar el div.Notifications cuando displayDrawer es true', () => {
     const wrapper = shallow(<Notifications displayDrawer={true} />);
     expect(wrapper.find('.Notifications').length).toBe(1);
+  });
+
+  it('Renders the correct HTML in the first NotificationItem element', () => {
+    const wrapper = shallow(<Notifications displayDrawer={true} />);
+    const firstNotificationItem = wrapper.find(NotificationItem).first();
+    expect(firstNotificationItem.prop('html')).toEqual({ __html: '<strong>Urgent requirement</strong>' });
   });
 });
