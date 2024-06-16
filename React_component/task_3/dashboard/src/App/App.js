@@ -5,7 +5,8 @@ import Footer from '../Footer/Footer.js';
 import Notifications from '../Notifications/Notifications.js';
 import PropTypes from 'prop-types';
 import CourseList from '../CourseList/CourseList.js';
-import BodySection from '../BodySection/BodySection'; // Importa el nuevo componente
+import BodySectionWithMarginBottom from '../BodySection/BodySectionWithMarginBottom'; // nuevo componente
+import BodySection from '../BodySection/BodySection'; // componente BodySection
 import './App.css';
 
 class App extends Component {
@@ -13,7 +14,7 @@ class App extends Component {
     super(props);
     this.handleKeyDown = this.handleKeyDown.bind(this);
   }
-
+  
   componentDidMount() {
     document.addEventListener('keydown', this.handleKeyDown);
   }
@@ -49,14 +50,19 @@ class App extends Component {
           <Header />
           <div className="App-body">
             {this.props.isLoggedIn ? (
-              <BodySection title="Course list">
+              <BodySectionWithMarginBottom title="Course list">
                 <CourseList listCourses={listCourses} />
-              </BodySection>
+              </BodySectionWithMarginBottom>
             ) : (
-              <BodySection title="test">
-                <p>test</p>
-              </BodySection>
+              <BodySectionWithMarginBottom title="Log in to continue">
+                <Login />
+              </BodySectionWithMarginBottom>
             )}
+            <BodySection title="News from the School">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nisl eros, pulvinar 
+                  facilisis justo mollis, auctor consequat urna.
+              </p>
+            </BodySection>
           </div>
           <Footer />
         </div>
