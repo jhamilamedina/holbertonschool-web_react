@@ -1,0 +1,46 @@
+/* CourseList.css */
+#CourseList {
+  margin-top: 3cap;
+  width: 100%;
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+}
+
+#CourseList th, #CourseList td {
+  border: 1px solid #ddd; 
+  padding: 8px;
+  text-align: left;
+}
+
+#CourseList th {
+  background-color: #f2f2f2; 
+  color: #333;
+}
+
+#CourseList td {
+  background-color: #ffffff;
+  color: #333;
+}
+
+#CourseList tr:nth-child(even) {
+  background-color: #f9f9f9; /* Color de fondo alternativo para filas */
+}
+
+#CourseList tr:hover {
+  background-color: #ddd; 
+}
+
+/* Extra: Mejorar el estilo general */
+#CourseList th, #CourseList td {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+#CourseList {
+  border: 2px solid #ddd; /* Bordes externos para la tabla */
+  border-radius: 4px; /* Bordes redondeados */
+}
+
+#CourseList th:first-child, #CourseList td:first-child {
+  padding-left: 16px; /* Espaciado adicional para la primera columna */
+}
