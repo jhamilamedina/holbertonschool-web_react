@@ -1,0 +1,45 @@
+.Notifications {
+  border: 2px dashed salmon;
+  padding: 5px;
+  background-color: #f9f9f9;
+  position: absolute;
+  right: 20px;
+  width: 350px;
+}
+
+.menuItem {
+  text-align: right;
+  font-size: 18px;
+  margin: 10px 20px;
+  cursor: pointer;
+}
+
+.Notifications p {
+  margin: 0;
+  font-size: 16px;
+  color: #333;
+}
+
+.Notifications li strong {
+  font-weight: 900;
+}
+
+li[data-notification-type="default"] {
+  color: blue;
+}
+
+li[data-notification-type="urgent"] {
+  color: red;
+}
+
+.Notifications.show {
+  display: block;
+}
+
+.Notifications.hide {
+  display: none;
+}
+
+.Notifications .menuItem {
+  cursor: pointer;
+}
