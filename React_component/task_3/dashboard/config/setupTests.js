@@ -7,14 +7,13 @@ import { configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 // import { TextEncoder } from 'util';
 
-
 configure({ adapter: new Adapter() });
 
 // Mock the window.alert function
-global.alert = jest.fn();
+// global.alert = jest.fn();
 
 // Polyfill for TextEncoder
-if (typeof TextEncoder === 'undefined') {
-  const { TextEncoder } = require('util');
-  global.TextEncoder = TextEncoder;
-}
+// if (typeof TextEncoder === 'undefined') {
+  // const { TextEncoder } = require('util');
+  // global.TextEncoder = TextEncoder;
+// }
