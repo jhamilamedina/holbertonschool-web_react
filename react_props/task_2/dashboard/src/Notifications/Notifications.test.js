@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import Notifications from './Notifications';
+import NotificationItem from './NotificationItem';
 
 describe('Notifications Component', () => {
   let wrapper;
@@ -13,8 +14,8 @@ describe('Notifications Component', () => {
     expect(wrapper.exists()).toBe(true);
   });
 
-  it('Renderiza 3 li.', () => {
-    expect(wrapper.find('li').length).toBe(3);
+  it('Renderiza 3 componentes NotificationItem.', () => {
+    expect(wrapper.find(NotificationItem).length).toBe(3);
   });
 
   it('Renderiza con el texo "Here is the list of notifications"', () => {
