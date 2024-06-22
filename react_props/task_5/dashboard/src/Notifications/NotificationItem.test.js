@@ -1,17 +1,16 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Notifications from './Notifications';
-import NotificationItem from './NotificationItem';
+import NotificationItem from '../Notifications/NotificationItem';
 
-describe('Notifications Component', () => {
-  it('renders NotificationItem elements', () => {
-    const wrapper = shallow(<Notifications />);
-    expect(wrapper.find(NotificationItem)).toHaveLength(3); // Cambia el número según cuántos elementos esperas
+describe('NotificationItem componente', () => {
+  it('Renderiza sin romperse con la propiedad "default"', () => {
+    const wrapper = shallow(<NotificationItem type="default" />);
+    expect(wrapper.exists()).toBe(true);
   });
 
-  it('renders the correct HTML in the first NotificationItem element', () => {
-    const wrapper = shallow(<Notifications />);
-    const firstNotificationItem = wrapper.find(NotificationItem).first();
-    expect(firstNotificationItem.prop('html')).toEqual({ __html: '<strong>Urgent requirement</strong>' });
+  it('Renderiza con 1 propiedad y un valor.', () => {
+    const wrapper = shallow(<NotificationItem type="default" value="test" />);
+    expect(wrapper.prop('data-notification-type')).toEqual('default');
+    expect(wrapper.text()).toEqual('test');
   });
 });
