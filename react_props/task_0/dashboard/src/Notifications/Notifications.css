@@ -15,6 +15,10 @@
   font-weight: 900;
 }
 
+.Notifications NotificationItem {
+  color: blue;
+}
+
 .Notifications ul li[data-priority="default"] {
   color: blue;
 }
