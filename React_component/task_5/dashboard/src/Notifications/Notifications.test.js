@@ -13,18 +13,18 @@ describe('Notifications component', () => {
 
     it('renders correctly with an empty array', () => {
       expect(wrapper.find(NotificationItem).length).toBe(0);
-      expect(wrapper.text()).toContain('No new notification for now');
+      expect(wrapper.text()).toContain('No hay nuevas notificaciones por ahora');
     });
 
     it('renders correctly without listNotifications prop', () => {
       wrapper = shallow(<Notifications />);
       expect(wrapper.find(NotificationItem).length).toBe(0);
-      expect(wrapper.text()).toContain('No new notification for now');
+      expect(wrapper.text()).toContain('No hay nuevas notificaciones por ahora');
     });
 
     it('does not show "Here is the list of notifications"', () => {
-      expect(wrapper.text()).not.toContain('Here is the list of notifications');
-      expect(wrapper.text()).toContain('No new notification for now');
+      expect(wrapper.text()).not.toContain('Aquí está la lista de notificaciones');
+      expect(wrapper.text()).toContain('No hay nuevas notificaciones por ahora');
     });
   });
 
@@ -64,6 +64,37 @@ describe('Notifications component', () => {
 
       // Clean up the spy
       consoleSpy.mockRestore();
+    });
+  });
+
+  // New tests for shouldComponentUpdate
+  describe('shouldComponentUpdate behavior', () => {
+    let wrapper;
+    const notifications = [
+      { id: 1, type: 'default', value: 'New course available' },
+      { id: 2, type: 'urgent', value: 'New resume available' },
+    ];
+
+    beforeEach(() => {
+      wrapper = shallow(<Notifications listNotifications={notifications} />);
+    });
+
+    it('does not rerender when updating props with the same list', () => {
+      const spy = jest.spyOn(Notifications.prototype, 'render');
+      wrapper.setProps({ listNotifications: notifications });
+      expect(spy).not.toHaveBeenCalled();
+      spy.mockRestore();
+    });
+
+    it('rerenders when updating props with a longer list', () => {
+      const spy = jest.spyOn(Notifications.prototype, 'render');
+      const newNotifications = [
+        ...notifications,
+        { id: 3, type: 'urgent', value: 'New job offer available' },
+      ];
+      wrapper.setProps({ listNotifications: newNotifications });
+      expect(spy).toHaveBeenCalled();
+      spy.mockRestore();
     });
   });
 });
