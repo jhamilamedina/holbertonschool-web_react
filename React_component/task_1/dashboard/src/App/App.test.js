@@ -8,18 +8,16 @@ import Login from '../Login/Login.js';
 import Footer from '../Footer/Footer.js';
 import CourseList from '../CourseList/CourseList.js';
 
+// Mock the alert function globally
+global.alert = jest.fn();
+
 describe('App Component', () => {
   let wrapper;
-  let logOutMock;
+  let mockLogOut;
 
   beforeEach(() => {
-    logOutMock = jest.fn();
-    wrapper = shallow(<App logOut={logOutMock} />);
-    jest.spyOn(window, 'alert').mockImplementation(() => {});
-  });
-
-  afterEach(() => {
-    jest.clearAllMocks();
+    mockLogOut = jest.fn();
+    wrapper = shallow(<App logOut={mockLogOut} />);
   });
 
   it('should render without crashing', () => {
@@ -48,7 +46,7 @@ describe('App Component', () => {
 
   describe('when isLoggedIn is true', () => {
     beforeEach(() => {
-      wrapper = shallow(<App isLoggedIn={true} logOut={logOutMock} />);
+      wrapper = shallow(<App isLoggedIn={true} />);
     });
 
     it('should not render the Login component', () => {
@@ -60,13 +58,15 @@ describe('App Component', () => {
     });
   });
 
-  describe('logout functionality', () => {
-    it('should call logOut and show alert when control and h keys are pressed', () => {
-      const event = new KeyboardEvent('keydown', { ctrlKey: true, key: 'h' });
+  describe('logOut functionality', () => {
+    it('should call logOut and alert with correct message when control and h are pressed', () => {
+      // Simulate keydown event for Control+H
+      const event = new KeyboardEvent('keydown', { key: 'h', ctrlKey: true });
       document.dispatchEvent(event);
 
-      expect(window.alert).toHaveBeenCalledWith('Logging you out');
-      expect(logOutMock).toHaveBeenCalled();
+      // Assertions
+      expect(mockLogOut).toHaveBeenCalled();
+      expect(global.alert).toHaveBeenCalledWith('Logging you out');
     });
   });
 });
