@@ -2,34 +2,42 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import CourseListRow from './CourseListRow';
 
-describe('CourseListRow component', () => {
-  // When isHeader is true
-  describe('When isHeader is true', () => {
-    it('renders one cell with colspan = 2 when textSecondCell does not exist', () => {
-      const wrapper = shallow(<CourseListRow isHeader={true} textFirstCell="Header" />);
-      const thElement = wrapper.find('th');
+describe('Test para el componente CourseListRow', () => {
+  const courseName = 'Course name';
+  const cred = 'Creditos';
 
-      expect(thElement).toHaveLength(1);
-      expect(thElement.props().colSpan).toEqual(2);
-    });
-
-    it('renders two cells when textSecondCell is present', () => {
-      const wrapper = shallow(<CourseListRow isHeader={true} textFirstCell="Header1" textSecondCell="Header2" />);
-      const thElements = wrapper.find('th');
-
-      expect(thElements).toHaveLength(2);
-    });
+  it('Renderiza con una celda y colspan cuando isHeader = true y textSecondCell = null', () => {
+    const wrapper = shallow(
+      <CourseListRow isHeader={true} textFirstCell={courseName} />
+    );
+    expect(wrapper.find('th').length).toBe(1);
+    expect(wrapper.find('th').prop('colSpan')).toBe(2);
+    expect(wrapper.find('th').text()).toBe(courseName);
   });
 
-  // When isHeader is false
-  describe('When isHeader is false', () => {
-    it('renders correctly two td elements within a tr element', () => {
-      const wrapper = shallow(<CourseListRow isHeader={false} textFirstCell="Data1" textSecondCell="Data2" />);
-      const trElement = wrapper.find('tr');
-      const tdElements = trElement.find('td');
+  it('Renderiza con 2 celdas cuando isHeader = y textSecondCell esta presente', () => {
+    const wrapper = shallow(
+      <CourseListRow
+        isHeader={true}
+        textFirstCell={courseName}
+        textSecondCell={cred}
+      />
+    );
+    expect(wrapper.find('th').length).toBe(2);
+    expect(wrapper.find('th').at(0).text()).toBe(courseName);
+    expect(wrapper.find('th').at(1).text()).toBe(cred);
+  });
 
-      expect(trElement).toHaveLength(1);
-      expect(tdElements).toHaveLength(2);
-    });
+  it('Renderiza con 2 celdas cuando isHeader es false', () => {
+    const wrapper = shallow(
+      <CourseListRow
+        isHeader={false}
+        textFirstCell={courseName}
+        textSecondCell={cred}
+      />
+    );
+    expect(wrapper.find('td').length).toBe(2);
+    expect(wrapper.find('td').at(0).text()).toBe(courseName);
+    expect(wrapper.find('td').at(1).text()).toBe(cred);
   });
 });

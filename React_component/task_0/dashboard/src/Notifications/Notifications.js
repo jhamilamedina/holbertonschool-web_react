@@ -1,17 +1,15 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import './Notifications.css';
 import NotificationItem from './NotificationItem';
+import PropTypes from 'prop-types';
 import NotificationItemShape from './NotificationItemShape';
 
-const Notifications = ({ displayDrawer, listNotifications }) => {
-  const notificationsClass = displayDrawer ? 'Notifications show' : 'Notifications';
-
+function Notifications({ displayDrawer = true, listNotifications = [] }) {
   return (
-    <>
-      <div className="menuItem">Your notifications</div>
-      {displayDrawer && (
-        <div className={notificationsClass}>
+    <div className="menuItem">
+      <p>Your notifications</p>
+      {displayDrawer ? (
+        <div className="Notifications">
           <button
             style={{
               position: 'absolute',
@@ -27,38 +25,32 @@ const Notifications = ({ displayDrawer, listNotifications }) => {
           >
             x
           </button>
-          <p>Here is the list of notifications</p>
-          <ul>
-            {listNotifications.length === 0 ? (
-              <NotificationItem
-                type="default"
-                value="No new notification for now"
-              />
-            ) : (
-              listNotifications.map((notification) => (
-                <NotificationItem
-                  key={notification.id}
-                  type={notification.type}
-                  value={notification.value}
-                  html={notification.html}
-                />
-              ))
-            )}
-          </ul>
+          {listNotifications.length === 0 ? (
+            <p>No new notifications for now</p>
+          ) : (
+            <>
+              <p>Here is the list of notifications</p>
+              <ul>
+                {listNotifications.map((item) => (
+                  <NotificationItem
+                    key={item.id}
+                    type={item.type}
+                    html={item.html}
+                    value={item.value}
+                  />
+                ))}
+              </ul>
+            </>
+          )}
         </div>
-      )}
-    </>
+      ) : null}
+    </div>
   );
-};
+}
 
 Notifications.propTypes = {
   displayDrawer: PropTypes.bool,
   listNotifications: PropTypes.arrayOf(NotificationItemShape),
-};
-
-Notifications.defaultProps = {
-  displayDrawer: false,
-  listNotifications: [],
 };
 
 export default Notifications;
