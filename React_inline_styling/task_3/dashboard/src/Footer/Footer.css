@@ -1,0 +1,8 @@
+.App-footer p {
+  text-align: center;
+  padding: 10px;
+  background-color:white;
+  color: rgb(6, 5, 5);
+  border-top: 2px solid rgb(215, 27, 49);
+  margin-top: 25%;
+}
