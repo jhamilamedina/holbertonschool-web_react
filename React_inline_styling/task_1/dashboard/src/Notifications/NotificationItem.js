@@ -1,40 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import './Notifications.css';
-
-import { StyleSheet, css } from 'aphrodite';
-
-const styles = StyleSheet.create({
-  defaultItem: {
-    color: 'blue',
-  },
-  urgentItem: {
-    color: 'red',
-  },
-  Notificationsshow: {
-    display: 'block',
-  },
-  
-  Notificationshide: {
-    display: 'none',
-  },
-  
-  NotificationsmenuItem: {
-    cursor: 'pointer',
-  },
-});
+import './Notifications.css';
 
 const NotificationItem = ({ type, html, value, markAsRead, id }) => {
   const handleClick = () => {
     markAsRead(id); // Llamar a markAsRead con el id de la notificación
   };
 
-  const notificationClass = type === 'urgent' ? css(styles.urgentItem) : css(styles.defaultItem);
-
   return (
-    <li
-      className={notificationClass}
-      data-notification-type={type}
+    <li 
+      data-notification-type={type} 
       onClick={handleClick} // Llamar handleClick al hacer clic en el elemento
       dangerouslySetInnerHTML={html ? html : undefined}
     >
