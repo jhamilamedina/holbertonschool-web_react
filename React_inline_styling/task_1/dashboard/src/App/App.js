@@ -12,7 +12,7 @@ import { StyleSheet, css } from 'aphrodite';
 const styles = StyleSheet.create({
   app: {
     fontFamily: 'Arial, sans-serif',
-    backgroundColor: '#f5f5f5',
+    backgroundColor: '#FDFEFE ',
     minHeight: '100vh',
     display: 'flex',
     flexDirection: 'column',
@@ -20,13 +20,13 @@ const styles = StyleSheet.create({
   Applogo: {
     position: 'relative',
     position: 'absolute',
-    left: '0',
+    left: '0%',
     width: '20%',
     height: 'auto',
     top: '1cap',
   },
   Appheaderh1: {
-    color: 'red',
+    color: '#FF3352',
     textalign: 'right',
     position: 'relative',
     position: 'absolute',
@@ -45,9 +45,9 @@ const styles = StyleSheet.create({
     fontsize: 'calc(10px + 2vmin)',
   },
   appBody: {
-    flex: 1,
+    flex: '1',
     padding: '80px',
-    bordertop: '2px solid rgb(215, 27, 49)',
+    bordertop: '2px solid #FF336B',
     margintop: '20%',
     marginright: '90px',
   },
@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
     alignitems: 'center', /* Alinea los elementos verticalmente al centro */
   },
   footer: {
-    backgroundColor: '#deb5b545',
+    backgroundColor: '#FDFEFE ',
     padding: '10px',
     textAlign: 'center',
   },
@@ -90,9 +90,9 @@ const styles = StyleSheet.create({
   Appfooterp: {
     textalign: 'center',
     padding: '10px',
-    backgroundcolor: 'white',
-    color: 'rgb(6, 5, 5)',
-    bordertop: '2px solid rgb(215, 27, 49)',
+    background: '#FDFEFE ',
+    color: '#FF336B',
+    borderColor: '2px solid #FF336B',
     margintop: '25%',
   },
 });
