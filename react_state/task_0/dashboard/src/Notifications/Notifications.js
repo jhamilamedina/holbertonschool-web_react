@@ -64,17 +64,25 @@ class Notifications extends Component {
     console.log(`Notification ${id} has been marked as read`);
   };
 
+  // Define handleDisplayDrawer function here
+  handleDisplayDrawer = () => {
+    const { handleDisplayDrawer } = this.props;
+    if (handleDisplayDrawer) {
+      handleDisplayDrawer();
+    }
+  };
+
   shouldComponentUpdate(nextProps) {
     return nextProps.listNotifications.length > this.props.listNotifications.length;
   }
 
   render() {
-    const { displayDrawer, listNotifications, handleDisplayDrawer, handleHideDrawer } = this.props;
+    const { displayDrawer, listNotifications, handleHideDrawer } = this.props;
 
     return (
       <>
         {!displayDrawer && (
-          <div className={css(styles.menuItem)} onClick={handleDisplayDrawer}>
+          <div className={css(styles.menuItem)} onClick={this.handleDisplayDrawer}>
             Tus notificaciones
           </div>
         )}
