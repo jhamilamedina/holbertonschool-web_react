@@ -17,9 +17,9 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'column',
   },
-  appBody: {
+  body: {
     flex: 1,
-    padding: '50px',
+    padding: '80px',
     borderTop: '2px solid #FF336B',
     marginTop: '20%',
     marginRight: '90px',
@@ -78,7 +78,7 @@ class App extends Component {
         <Notifications displayDrawer={true} listNotifications={listNotifications} />
         <div className={css(styles.app)}>
           <Header />
-          <div className={css(styles.appBody)}>
+          <div className={css(styles.body)}>
             {this.props.isLoggedIn ? (
               <BodySectionWithMarginBottom title="Course list">
                 <CourseList listCourses={listCourses} />
