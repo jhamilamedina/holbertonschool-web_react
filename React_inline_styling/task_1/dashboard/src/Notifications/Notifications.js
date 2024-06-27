@@ -1,4 +1,3 @@
-// import './Notifications.css';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { StyleSheet, css } from 'aphrodite';
@@ -13,6 +12,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     right: '20px',
     width: '350px',
+    zIndex: 100,
   },
   menuItem: {
     textAlign: 'right',
@@ -35,26 +35,22 @@ const styles = StyleSheet.create({
 });
 
 class Notifications extends Component {
-  // Método para marcar una notificación como leída
   markAsRead = (id) => {
     console.log(`Notification ${id} has been marked as read`);
   };
 
-  // Método para determinar si el componente debe actualizarse
   shouldComponentUpdate(nextProps) {
-    // Solo actualizar si la nueva lista de notificaciones es más larga que la anterior
     return nextProps.listNotifications.length > this.props.listNotifications.length;
   }
 
   render() {
     const { displayDrawer, listNotifications } = this.props;
-    const notificationsClass = displayDrawer ? css(styles.notifications) : css(styles.notifications);
 
     return (
       <>
         <div className={css(styles.menuItem)}>Tus notificaciones</div>
         {displayDrawer && (
-          <div className={notificationsClass}>
+          <div className={css(styles.notifications)}>
             <button
               className={css(styles.closeButton)}
               aria-label="Cerrar"
@@ -76,7 +72,7 @@ class Notifications extends Component {
                     type={notification.type}
                     value={notification.value}
                     html={notification.html}
-                    markAsRead={this.markAsRead} // Pasar el método como prop
+                    markAsRead={this.markAsRead}
                   />
                 ))
               )}
