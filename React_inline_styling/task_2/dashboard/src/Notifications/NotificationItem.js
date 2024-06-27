@@ -1,7 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import './Notifications.css';
-
 import { StyleSheet, css } from 'aphrodite';
 
 const styles = StyleSheet.create({
@@ -14,11 +12,9 @@ const styles = StyleSheet.create({
   Notificationsshow: {
     display: 'block',
   },
-  
   Notificationshide: {
     display: 'none',
   },
-  
   NotificationsmenuItem: {
     cursor: 'pointer',
   },
@@ -26,7 +22,7 @@ const styles = StyleSheet.create({
 
 const NotificationItem = ({ type, html, value, markAsRead, id }) => {
   const handleClick = () => {
-    markAsRead(id); // Llamar a markAsRead con el id de la notificación
+    markAsRead(id);
   };
 
   const notificationClass = type === 'urgent' ? css(styles.urgentItem) : css(styles.defaultItem);
@@ -35,7 +31,7 @@ const NotificationItem = ({ type, html, value, markAsRead, id }) => {
     <li
       className={notificationClass}
       data-notification-type={type}
-      onClick={handleClick} // Llamar handleClick al hacer clic en el elemento
+      onClick={handleClick}
       dangerouslySetInnerHTML={html ? html : undefined}
     >
       {html ? null : value}
@@ -49,8 +45,8 @@ NotificationItem.propTypes = {
   }),
   type: PropTypes.string.isRequired,
   value: PropTypes.string,
-  markAsRead: PropTypes.func.isRequired, // markAsRead debe ser una función requerida
-  id: PropTypes.number.isRequired, // id debe ser un número requerido
+  markAsRead: PropTypes.func.isRequired,
+  id: PropTypes.number.isRequired,
 };
 
 NotificationItem.defaultProps = {
