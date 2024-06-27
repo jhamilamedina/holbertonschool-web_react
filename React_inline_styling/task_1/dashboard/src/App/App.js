@@ -12,88 +12,30 @@ import { StyleSheet, css } from 'aphrodite';
 const styles = StyleSheet.create({
   app: {
     fontFamily: 'Arial, sans-serif',
-    backgroundColor: '#FDFEFE ',
+    backgroundColor: '#FDFEFE',
     minHeight: '100vh',
     display: 'flex',
     flexDirection: 'column',
   },
-  Applogo: {
-    position: 'relative',
-    position: 'absolute',
-    left: '0%',
-    width: '20%',
-    height: 'auto',
-    top: '1cap',
-  },
-  Appheaderh1: {
-    color: '#FF3352',
-    textalign: 'right',
-    position: 'relative',
-    position: 'absolute',
-    left: '0px',
-    width: '45%',
-    height: 'auto',
-    top: '3cap',
-  },
-  Appheader: {
-    backgroundcolor: 'white',
-    minheight: '5vh',
-    display: 'flex',
-    flexdirection: 'rowreverse',
-    alignitems: 'center',
-    justifycontent: 'center',
-    fontsize: 'calc(10px + 2vmin)',
-  },
   appBody: {
-    flex: '1',
-    padding: '80px',
-    bordertop: '2px solid #FF336B',
-    margintop: '20%',
-    marginright: '90px',
-  },
-  horizontalform: {
-    display: 'flex',
-    alignitems: 'center', /* Alinea los elementos verticalmente al centro */
+    flex: 1,
+    padding: '50px',
+    borderTop: '2px solid #FF336B',
+    marginTop: '20%',
+    marginRight: '90px',
   },
   footer: {
-    backgroundColor: '#FDFEFE ',
+    backgroundColor: '#FDFEFE',
     padding: '10px',
     textAlign: 'center',
   },
-  horizontalformdiv: {
-    display: 'flex',
-    alignitems: 'center',
-    marginright: '20px', /* Espacio entre los divs */
-  },
-  horizontalformlabel: {
-    marginright: '10px', /* Espacio entre la etiqueta y el input */
-  },
-  horizontalforminput: {
-    padding: '5px',
-  },
-  horizontalformbutton: {
-    padding: '10px',
-    backgroundcolor: '#f2f4f6',
-    color: 'rgb(3, 3, 3)',
-    border: 'none',
-    cursor: 'pointer',
-    borderradius: '7px',
-  },
-  horizontalformbuttonhover: {
-    backgroundcolor: '#f2f4f6',
-  },
-  Appbodyp: {
-    margintop: '4%',
-    textalign: 'left',
-    width: '50%',
-  },
   Appfooterp: {
-    textalign: 'center',
+    textAlign: 'center',
     padding: '10px',
-    background: '#FDFEFE ',
+    background: '#FDFEFE',
     color: '#FF336B',
     borderColor: '2px solid #FF336B',
-    margintop: '25%',
+    marginTop: '25%',
   },
 });
 
@@ -153,7 +95,7 @@ class App extends Component {
             </BodySection>
           </div>
           <footer className={css(styles.footer)}>
-            <p>&copy; 2024 Your Company</p>
+            <p className={css(styles.Appfooterp)}>&copy; 2024 Your Company</p>
           </footer>
         </div>
       </React.Fragment>
