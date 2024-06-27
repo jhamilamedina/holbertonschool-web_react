@@ -1,4 +1,3 @@
-// import './Notifications.css';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { StyleSheet, css } from 'aphrodite';
@@ -13,19 +12,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     right: '20px',
     width: '350px',
-  },
-  notificationsOpen: {
-    border: 'none',
-    padding: '0',
-    backgroundColor: '#fff',
-    position: 'fixed',
-    top: '0',
-    left: '0',
-    right: '0',
-    bottom: '0',
-    width: '100%',
-    height: '100%',
-    zIndex: '1000',
+    zIndex: 100,
   },
   menuItem: {
     textAlign: 'right',
@@ -43,34 +30,27 @@ const styles = StyleSheet.create({
     fontSize: '1rem',
   },
   notificationText: {
-    fontSize: '20px',
-  },
-  ul: {
-    padding: '0',
+    fontSize: '1rem',
   },
 });
 
 class Notifications extends Component {
-  // Método para marcar una notificación como leída
   markAsRead = (id) => {
     console.log(`Notification ${id} has been marked as read`);
   };
 
-  // Método para determinar si el componente debe actualizarse
   shouldComponentUpdate(nextProps) {
-    // Solo actualizar si la nueva lista de notificaciones es más larga que la anterior
     return nextProps.listNotifications.length > this.props.listNotifications.length;
   }
 
   render() {
     const { displayDrawer, listNotifications } = this.props;
-    const notificationsClass = displayDrawer ? css(styles.notificationsOpen) : css(styles.notifications);
 
     return (
       <>
         <div className={css(styles.menuItem)}>Tus notificaciones</div>
         {displayDrawer && (
-          <div className={notificationsClass}>
+          <div className={css(styles.notifications)}>
             <button
               className={css(styles.closeButton)}
               aria-label="Cerrar"
@@ -79,7 +59,7 @@ class Notifications extends Component {
               x
             </button>
             <p className={css(styles.notificationText)}>Aquí está la lista de notificaciones</p>
-            <ul className={css(styles.ul)}>
+            <ul>
               {listNotifications.length === 0 ? (
                 <NotificationItem
                   type="default"
@@ -92,7 +72,7 @@ class Notifications extends Component {
                     type={notification.type}
                     value={notification.value}
                     html={notification.html}
-                    markAsRead={this.markAsRead} // Pasar el método como prop
+                    markAsRead={this.markAsRead}
                   />
                 ))
               )}
