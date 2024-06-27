@@ -7,12 +7,15 @@ import NotificationItemShape from './NotificationItemShape';
 const styles = StyleSheet.create({
   notifications: {
     border: '2px dashed salmon',
-    padding: '5px',
     backgroundColor: '#f9f9f9',
-    position: 'absolute',
-    right: '20px',
-    width: '350px',
+    position: 'fixed',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
     zIndex: 100,
+    fontSize: '20px',
+    padding: 0,
   },
   menuItem: {
     textAlign: 'right',
@@ -30,8 +33,12 @@ const styles = StyleSheet.create({
     fontSize: '1rem',
   },
   notificationText: {
-    fontSize: '1rem',
+    fontSize: '20px',
   },
+  notificationList: {
+    listStyleType: 'none',
+    padding: 0,
+  }
 });
 
 class Notifications extends Component {
@@ -59,7 +66,7 @@ class Notifications extends Component {
               x
             </button>
             <p className={css(styles.notificationText)}>Aquí está la lista de notificaciones</p>
-            <ul>
+            <ul className={css(styles.notificationList)}>
               {listNotifications.length === 0 ? (
                 <NotificationItem
                   type="default"

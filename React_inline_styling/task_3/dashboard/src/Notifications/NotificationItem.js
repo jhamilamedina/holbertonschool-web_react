@@ -5,18 +5,17 @@ import { StyleSheet, css } from 'aphrodite';
 const styles = StyleSheet.create({
   defaultItem: {
     color: 'blue',
+    width: '100%',
+    borderBottom: '1px solid black',
+    fontSize: '20px',
+    padding: '10px 8px',
   },
   urgentItem: {
     color: 'red',
-  },
-  Notificationsshow: {
-    display: 'block',
-  },
-  Notificationshide: {
-    display: 'none',
-  },
-  NotificationsmenuItem: {
-    cursor: 'pointer',
+    width: '100%',
+    borderBottom: '1px solid black',
+    fontSize: '20px',
+    padding: '10px 8px',
   },
 });
 
