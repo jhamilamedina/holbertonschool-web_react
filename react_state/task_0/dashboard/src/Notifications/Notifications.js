@@ -4,45 +4,59 @@ import PropTypes from 'prop-types';
 import NotificationItemShape from './NotificationItemShape';
 import { StyleSheet, css } from 'aphrodite';
 
+const bounce = {
+  '0%': { transform: 'translateY(0px)' },
+  '50%': { transform: 'translateY(-5px)' },
+  '100%': { transform: 'translateY(5px)' }
+};
+
+const opacityChange = {
+  '0%': { opacity: 0.5 },
+  '100%': { opacity: 1 }
+};
+
 const styles = StyleSheet.create({
   notifications: {
     border: '2px dashed salmon',
-    background: 'white',
-    '@media (max-width: 900px)': {
-      position: 'fixed',
-      top: 0,
-      right: 0,
-      left: 0,
-      bottom: 0,
-      width: '100%',
-      height: '100%',
-      margin: 0,
-      padding: 0,
-      fontSize: '20px',
-      zIndex: 1000,
-    },
-  },
-  ul: {
+    backgroundColor: '#f9f9f9',
+    position: 'fixed',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    zIndex: 100,
+    fontSize: '20px',
     padding: 0,
-    '@media (max-width: 900px)': {
-      padding: 0,
-    },
   },
-  p: {
-    margin: '5px',
-    '@media (max-width: 900px)': {
-      fontSize: '20px',
-    },
+  menuItem: {
+    textAlign: 'right',
+    fontSize: '18px',
+    margin: '10px 20px',
+    cursor: 'pointer',
+    float: 'right',
+    backgroundColor: '#fff8f8',
+    ':hover': {
+      animationName: [bounce, opacityChange],
+      animationDuration: '0.5s, 1s',
+      animationIterationCount: '3, 3'
+    }
   },
-  button: {
+  closeButton: {
     position: 'absolute',
     top: '10px',
     right: '10px',
     border: 'none',
     background: 'transparent',
     cursor: 'pointer',
-    fontSize: '16px',
+    fontSize: '1rem',
   },
+  notificationText: {
+    fontSize: '20px',
+  },
+  notificationList: {
+    listStyleType: 'none',
+    padding: 0,
+  }
 });
 
 class Notifications extends Component {
